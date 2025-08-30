@@ -100,7 +100,7 @@ export default function Users() {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await fetch("https://mernass-1.onrender.com/api/auth/login");
+        const res = await fetch("https://mernass-1.onrender.com/api/profiles");
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
         setProfiles(data);
