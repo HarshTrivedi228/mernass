@@ -66,7 +66,7 @@ export default function TopProducts() {
         : { twitter, linkedIn, gitHub, discord };
 
     try {
-      const res = await fetch("http://localhost:5000/api/profiles/add", {
+      const res = await fetch("https://mernass-1.onrender.com/api/profiles/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

@@ -100,7 +100,7 @@ export default function Users() {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const res = await fetch("https://mernass-1.onrender.com/api/profiles");
+        const res = await fetch("https://mernass-1.onrender.com/api/auth/login");
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         const data = await res.json();
         setProfiles(data);
@@ -116,7 +116,7 @@ export default function Users() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/profiles/${id}`, {
+      const res = await fetch(`https://mernass-1.onrender.com/api/profiles/${id}`, {
         method: "DELETE",
       });
       if (!res.ok) throw new Error("Failed to delete user");
@@ -138,7 +138,7 @@ export default function Users() {
     e.preventDefault();
     if (!editUser) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/profiles/${editUser._id}`, {
+      const res = await fetch(`https://mernass-1.onrender.com/api/profiles/${editUser._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
